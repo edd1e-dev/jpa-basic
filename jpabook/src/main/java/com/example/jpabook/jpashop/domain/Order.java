@@ -1,5 +1,8 @@
 package com.example.jpabook.jpashop.domain;
 
+import static javax.persistence.CascadeType.*;
+import static javax.persistence.FetchType.*;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,12 +19,12 @@ public class Order extends BaseEntity {
     @Id @GeneratedValue
     @Column(name = "ORDER_ID")
     private Long id;
-    @ManyToOne
+    @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order", cascade = ALL)
     private List<OrderItem> orderItem = new ArrayList<>();
-    @OneToOne
+    @OneToOne(fetch = LAZY, cascade = ALL)
     @JoinColumn(name = "DELIVERY_ID")
     private Delivery delivery;
     private LocalDateTime orderDate;

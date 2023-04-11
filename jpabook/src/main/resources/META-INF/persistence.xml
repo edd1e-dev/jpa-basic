@@ -12,6 +12,7 @@
         <class>com.example.jpabook.jpashop.domain.Movie</class>
         <class>com.example.jpabook.jpashop.domain.Album</class>
         <class>com.example.jpabook.jpashop.domain.Book</class>
+        <class>com.example.jpabook.jpashop.domain.Team</class>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
             <!-- 필수 속성 -->

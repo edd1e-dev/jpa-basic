@@ -1,5 +1,7 @@
 package com.example.jpabook.jpashop.domain;
 
+import static javax.persistence.FetchType.*;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,10 +14,10 @@ public class OrderItem extends BaseEntity {
     @Id @GeneratedValue
     @Column(name = "ORDER_ITEM_ID")
     private Long id;
-    @ManyToOne
+    @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "ORDER_ID")
     private Order order;
-    @ManyToOne
+    @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "ITEM_ID")
     private Item item;
     private int orderPrice;
